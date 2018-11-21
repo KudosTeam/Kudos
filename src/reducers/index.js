@@ -5,7 +5,7 @@ const initialState = {
   selectedCompliment: "",
   phoneNO: undefined,
   selectedGiphy: undefined,
-  isCalled: false
+  isCalled: true
 };
 
 export default function reducer(state = initialState, action) {
@@ -28,6 +28,16 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         selectedGiphy: action.selectedGiphy
+      };
+    case "SET_IS_CALLED":
+      return {
+        ...state,
+        isCalled: action.isCalled
+      };
+    case "GO_HOME":
+      return {
+        ...state,
+        isCalled: action.isCalled
       };
     default:
       return state;

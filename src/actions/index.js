@@ -3,7 +3,8 @@ import {
   setCompliments,
   setSelectedCompliment,
   setPhone,
-  setSelectedGiphy
+  setSelectedGiphy,
+  setIsCalled
 } from "./creators";
 const RapidAPI = new require("rapidapi-connect");
 const rapid = new RapidAPI(
@@ -54,7 +55,7 @@ export function selectCompliment(event) {
   };
 }
 
-export function makeCall() {
+export function makeCall(isCalled) {
   return function(dispatch, getState) {
     return (async () => {
       if (!getState().selectedCompliment)
@@ -71,6 +72,7 @@ export function makeCall() {
         rapid
           .call("Twilio", "makeCall", twilioObj)
           .on("success", payload => {
+            dispatch(setIsCalled(!isCalled));
             console.log("call success");
           })
           .on("error", payload => {
@@ -92,7 +94,6 @@ export function storePhone(event) {
 
 export function getGiphy() {
   return function(dispatch, getState) {
-    console.log("HIHIIHII");
     return axios.get("/giphy").then(data => {
       const giphyURL = data.data;
       dispatch(setSelectedGiphy(giphyURL));

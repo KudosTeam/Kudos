@@ -9,13 +9,14 @@ import {
 
 const mapStateToProps = state => ({
   compliments: state.compliments,
-  selectedCompliment: state.selectedCompliment
+  selectedCompliment: state.selectedCompliment,
+  isCalled: state.isCalled
 });
 
 const mapDispatchToProps = dispatch => {
   return {
-    makeCall: () => {
-      const res = makeCall();
+    makeCall: isCalled => {
+      const res = makeCall(isCalled);
       dispatch(res);
     },
     fetchCompliments: () => {
