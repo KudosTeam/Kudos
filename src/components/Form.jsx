@@ -31,11 +31,7 @@ class Form extends Component {
           <div>
             <label>Phone Number:</label>
             <br />
-            <input
-              type="text"
-              name="phone"
-              onChange={this.onChange}
-            />
+            <input type="text" name="phone" onChange={this.onChange} />
           </div>
           <br />
           <button onClick={this.props.makeCall}>Send Compliment</button>

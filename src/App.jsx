@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.png";
 import "./App.css";
 import { Provider } from "react-redux";
+import Navbar from "./components/Navbar";
 
 import { FormContainer } from "./containers/Form";
 import store from "./store";
@@ -17,11 +18,12 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App">
-          <header className="App-header">
+          <Navbar />
+          {/* <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p>Tell one compliment per day to someone special!</p>
           </header>
-          <hr />
+          <hr /> */}
           <FormContainer />
         </div>
       </Provider>

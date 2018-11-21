@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import SlackButton from "../components/SlackButton";
+import Flower from "../components/Flower";
 import { makeCall } from "../utils/index";
 
 const mapStateToProps = state => ({
@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export const SlackContainer = connect(
+export const FlowerContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(SlackButton);
+)(Flower);
