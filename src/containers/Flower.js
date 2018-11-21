@@ -1,15 +1,16 @@
 import { connect } from "react-redux";
 import Flower from "../components/Flower";
-import { makeCall } from "../utils/index";
+import { getGiphy } from "../actions/";
 
 const mapStateToProps = state => ({
-  compliments: state.compliments
+  selectedGiphy: state.selectedGiphy
 });
 
 const mapDispatchToProps = dispatch => {
   return {
-    makeCall: () => {
-      const res = makeCall();
+    getGiphy: () => {
+      const res = getGiphy();
+      console.log("RES", res);
       dispatch(res);
     }
   };
