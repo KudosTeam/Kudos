@@ -10,13 +10,12 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case "FETCH_COMPLIMENTS":
-      return { language: state.language, compliments: action.compliments };
-    case "SEND_COMPLIMENT":
+      return { ...state, language: state.language, compliments: action.compliments };
+    case "SET_SELECTED_COMPLIMENT":
       return {
-        selectedLanguage: action.language,
-        selectedCompliment: action.compliment,
-        phoneNO: action.phone
-      };
+        ...state,
+        selectedCompliment: action.selectedCompliment
+      }
     default:
       return state;
   }
