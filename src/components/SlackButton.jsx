@@ -17,19 +17,4 @@ class SlackButton extends Component {
   }
 }
 
-// const mapStateToProps = state => ({
-//   compliments: state.compliments
-// });
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     getLocations: () => {
-//       const res = getLocations();
-//       dispatch(res);
-//     }
-//   };
-// };
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(SlackButton);
+export default SlackButton;
