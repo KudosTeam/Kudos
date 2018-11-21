@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { SelectField, MenuItem } from "material-ui";
+import { SelectField, MenuItem, RaisedButton } from "material-ui";
 
 class Form extends Component {
   render() {
@@ -10,7 +10,7 @@ class Form extends Component {
 
     return (
       <div className="form">
-        <h1>Send Compliment!</h1>
+        <h2>Send Compliment!</h2>
         <div>
           <div>
             <label>Compliment:</label>
@@ -30,7 +30,7 @@ class Form extends Component {
             <input type="text" name="phone" onChange={this.props.storePhone} />
           </div>
           <br />
-          <button onClick={this.props.makeCall}>Send Compliment</button>
+          <RaisedButton label="Send Compliment" onClick={this.props.makeCall} />
         </div>
       </div>
     );
