@@ -14,12 +14,10 @@ const twilioObj = {
 }
 
 
-function makeCall() {
+export function makeCall() {
     rapid.call('Twilio', 'makeCall', twilioObj).on('success', (payload) => {
         console.log('call success');
     }).on('error', (payload) => {
         console.error('error: call did not go through');
     });;
 }
-
-makeCall();
