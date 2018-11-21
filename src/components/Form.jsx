@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { fetchCompliments, sendCompliment } from "../actions/complimentActions";
-import "./Form.css";
 import { SelectField } from "material-ui";
 
 class Form extends Component {
-  onChange = e => {
-    // this.setState({ [e.target.name]: e.target.value });
-  };
+  // onChange = e => {
+  //   // this.setState({ [e.target.name]: e.target.value });
+  // };
   componentWillMount() {
     this.props.fetchCompliments();
   }
@@ -23,17 +20,7 @@ class Form extends Component {
     return (
       <div className="form">
         <h1>Send Compliment!</h1>
-        <form>
-          <div>
-            <label>Language:</label>
-            <br />
-            <input
-              type="text"
-              name="language"
-              onChange={this.onChange}
-              value={this}
-            />
-          </div>
+        <div>
           <div>
             <label>Compliment:</label>
             <br />
@@ -48,21 +35,14 @@ class Form extends Component {
               type="text"
               name="phone"
               onChange={this.onChange}
-              value={this}
             />
           </div>
           <br />
-          <button type="submit">Send Compliment</button>
-        </form>
+          <button onClick={this.props.makeCall}>Send Compliment</button>
+        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  compliments: state.compliments
-});
-export default connect(
-  mapStateToProps,
-  { fetchCompliments, sendCompliment }
-)(Form);
+export default Form;

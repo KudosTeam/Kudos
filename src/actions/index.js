@@ -1,12 +1,11 @@
-import { FETCH_COMPLIMENTS, SEND_COMPLIMENT } from "./types";
 
 export function fetchCompliments() {
-  return function(dispatch) {
+  return function (dispatch) {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then(res => res.json())
       .then(compliments =>
         dispatch({
-          type: FETCH_COMPLIMENTS,
+          type: "FETCH_COMPLIMENTS",
           compliments: compliments
         })
       );
@@ -14,9 +13,10 @@ export function fetchCompliments() {
 }
 
 export function sendCompliment() {
-  return function(dispatch) {
+  return function (dispatch) {
     return dispatch({
-      type: SEND_COMPLIMENT
+      type: "SEND_COMPLIMENT"
     });
   };
 }
+

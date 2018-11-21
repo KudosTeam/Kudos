@@ -3,9 +3,9 @@ import logo from "./logo.png";
 import "./App.css";
 import { Provider } from "react-redux";
 
-import Form from "./components/Form";
+import { FormContainer } from "./containers/Form";
 import store from "./store";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 
@@ -22,7 +22,7 @@ class App extends Component {
             <p>Tell one compliment per day to someone special!</p>
           </header>
           <hr />
-          <Form />
+          <FormContainer />
         </div>
       </Provider>
     );
