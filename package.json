@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "env": "^0.0.2",
     "express": "^4.16.4",
     "knex": "^0.15.2",
     "material-ui": "^0.20.2",
@@ -21,12 +20,16 @@
     "twilio": "^3.24.0"
   },
   "scripts": {
-    "serve": "react-scripts build && node server",
     "start": "node server",
+    "serve": "react-scripts build && node server",
     "hack": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "yarn build && yarn migrate && yarn seed",
+    "migrate": "knex migrate:latest --knexfile ./db/knexfile.js",
+    "rollback": "knex migrate:rollback --knexfile ./db/knexfile.js",
+    "seed": "knex seed:run --knexfile ./db/knexfile.js"
   },
   "eslintConfig": {
     "extends": "react-app"
