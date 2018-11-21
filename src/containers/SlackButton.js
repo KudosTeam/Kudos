@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export const FormContainer = connect(
+export const SlackContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Form);
+)(SlackButton);
