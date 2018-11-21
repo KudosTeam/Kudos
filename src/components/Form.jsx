@@ -4,12 +4,8 @@ import { SelectField, MenuItem, RaisedButton } from "material-ui";
 class Form extends Component {
   render() {
     const complimentsPullDown = [
-      { payload: "0", text: "Yo momma so poor that ducks throw bread at her" },
-      {
-        payload: "1",
-        text:
-          "Yo momma so dumb that she went to an L.A. Clippers game to get a hair cut"
-      }
+      { payload: "0", text: "I like your face" },
+      { payload: "1", text: "She sells seashells by the seashore"}
     ];
 
     return (
@@ -18,32 +14,22 @@ class Form extends Component {
         <div>
           <div>
             <label>Compliment:</label>
+            <h2>Write it yourself with love</h2>
+            <input type="text" name="complimentText" onChange={this.props.selectCompliment} />
             <br />
-            <SelectField
-              name="compliment"
-              onChange={this.props.storeCompliment}
-              menuItems={complimentsPullDown}
-            >
-              <MenuItem
-                payload="0"
-                value="Yo mama so poor that ducks throw bread at her"
-              >
-                Yo mama so poor that ducks throw bread at her
+            <h2>Choose a pre-made compliment</h2>
+            <SelectField name="compliment" onChange={this.props.selectCompliment} menuItems={complimentsPullDown} value="TESTING THIS STUFF" >
+              <MenuItem payload="0" value="I like your face">
+              I like your face
               </MenuItem>
-              <MenuItem
-                payload="1"
-                value="Yo momma so dumb that she went to an L.A. Clippers game to get a hair cut"
-              >
-                Yo momma so dumb that she went to an L.A. Clippers game to get a
-                hair cut
+              <MenuItem payload="1" value="She sells seashells by the seashore">
+              She sells seashells by the seashore
               </MenuItem>
             </SelectField>
           </div>
           <div>
             <label>Phone Number:</label>
             <br />
-            <input type="text" name="phone" onChange={this.props.storePhone} />
-            <input type="text" name="phone" onChange={this.onChange} />
             <input type="text" name="phone" onChange={this.props.storePhone} />
           </div>
           <br />

@@ -7,7 +7,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className="App-header">
-        <AppBar>
+        <AppBar color="#E75B76">
           {/* <Avatar src="../logo.png" style={avatarStyle} /> */}
         </AppBar>
       </div>
