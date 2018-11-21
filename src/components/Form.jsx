@@ -14,7 +14,7 @@ class Form extends Component {
 
     return (
       <div className="form">
-        <h1>Send Compliment!</h1>
+        <h3>Send Compliment!</h3>
         <div>
           <div>
             <label>Compliment:</label>
@@ -44,11 +44,7 @@ class Form extends Component {
             <br />
             <input type="text" name="phone" onChange={this.props.storePhone} />
             <input type="text" name="phone" onChange={this.onChange} />
-            <input
-              type="text"
-              name="phone"
-              onChange={this.props.storePhone}
-            />
+            <input type="text" name="phone" onChange={this.props.storePhone} />
           </div>
           <br />
           <button onClick={this.props.makeCall}>Send Compliment</button>
