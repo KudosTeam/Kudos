@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Form from '../components/Form';
-import { fetchCompliments, makeCall, storeCompliment } from '../actions/index';
+import { fetchCompliments, makeCall, selectCompliment, storePhone } from '../actions/index';
 
 const mapStateToProps = state => ({
     compliments: state.compliments,
@@ -17,8 +17,12 @@ const mapDispatchToProps = (dispatch) => {
             const res = fetchCompliments();
             dispatch(res);
         },
-        storeCompliment: (event) => {
-            const res = storeCompliment(event);
+        selectCompliment: (event) => {
+            const res = selectCompliment(event);
+            dispatch(res);
+        },
+        storePhone: (event) => {
+            const res = storePhone(event);
             dispatch(res);
         },
     };

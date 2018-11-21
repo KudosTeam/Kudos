@@ -12,3 +12,10 @@ export function setSelectedCompliment(selectedCompliment){
         selectedCompliment
       }
 }
+
+export function setPhone(phoneNO){
+    return {
+        type: "SET_PHONE",
+        phoneNO
+      }
+}

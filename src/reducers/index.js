@@ -3,7 +3,7 @@ const initialState = {
   language: ["english", "japanese", "chinese"],
   selectedLanguage: undefined,
   compliments: [],
-  selectedCompliment: undefined,
+  selectedCompliment: "",
   phoneNO: undefined
 };
 
@@ -16,6 +16,8 @@ export default function reducer(state = initialState, action) {
         ...state,
         selectedCompliment: action.selectedCompliment
       }
+      case "SET_PHONE":
+      return {...state, phoneNO: action.phoneNO}
     default:
       return state;
   }
