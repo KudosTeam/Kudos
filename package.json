@@ -4,6 +4,11 @@
   "private": true,
   "dependencies": {
     "material-ui": "^0.20.2",
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "knex": "^0.15.2",
+    "morgan": "^1.9.1",
+    "pg": "^7.6.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
@@ -13,7 +18,8 @@
     "thunk": "^0.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server",
+    "hack": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

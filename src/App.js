@@ -5,8 +5,14 @@ import { Provider } from "react-redux";
 
 import Form from "./components/Form";
 import store from "./store";
+import logo from "./logo.svg";
+import "./App.css";
+import axios from "axios";
 
 class App extends Component {
+  componentDidMount() {
+    axios.get("/compliments").then(data => console.log("ComDID", data));
+  }
   render() {
     return (
       <Provider store={store}>
