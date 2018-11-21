@@ -36,14 +36,13 @@ class Form extends Component {
                 payload="0"
                 value="Yo mama so poor that ducks throw bread at her"
               >
-                Yo mama so poor that ducks throw bread at her
+              Yo mama so poor that ducks throw bread at her
               </MenuItem>
               <MenuItem
                 payload="1"
                 value="Yo momma so dumb that she went to an L.A. Clippers game to get a hair cut"
               >
-                Yo momma so dumb that she went to an L.A. Clippers game to get a
-                hair cut
+                Yo momma so dumb that she went to an L.A. Clippers game to get a hair cut
               </MenuItem>
             </SelectField>
           </div>
@@ -51,12 +50,6 @@ class Form extends Component {
             <label>Phone Number:</label>
             <br />
             <input type="text" name="phone" onChange={this.props.storePhone} />
-            <input type="text" name="phone" onChange={this.onChange} />
-            <input
-              type="text"
-              name="phone"
-              onChange={this.props.storePhone}
-            />
           </div>
           <br />
           <button onClick={this.props.makeCall}>Send Compliment</button>
