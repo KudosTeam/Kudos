@@ -1,14 +1,20 @@
 import React, { Component } from "react";
 import Card from "@material-ui/core/Card";
-import CardMedia from "@material-ui/core/CardMedia";
-
-const RapidAPI = new require("rapidapi-connect");
 
 class Flower extends Component {
+  componentDidMount() {
+    this.props.getGiphy();
+  }
   render() {
     return (
       <div className="Flower">
-        <CardMedia image />
+        <Card>
+          {this.props.selectedGiphy ? (
+            <img src={this.props.selectedGiphy} />
+          ) : (
+            <div />
+          )}
+        </Card>
       </div>
     );
   }

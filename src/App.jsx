@@ -3,8 +3,8 @@ import logo from "./logo.png";
 import "./App.css";
 import { Provider } from "react-redux";
 import Navbar from "./components/Navbar";
-
 import { FormContainer } from "./containers/Form";
+import { FlowerContainer } from "./containers/Flower";
 import store from "./store";
 // import logo from "./logo.svg";
 import "./App.css";
@@ -23,7 +23,7 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <p>Tell one compliment per day to someone special!</p>
           </header>
-          <hr />
+          <FlowerContainer />
           <FormContainer />
         </div>
       </Provider>

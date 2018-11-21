@@ -1,7 +1,11 @@
 const express = require("express");
 const morgan = require("morgan");
 const path = require("path");
-const VoiceResponse = require('twilio').twiml.VoiceResponse;
+const VoiceResponse = require("twilio").twiml.VoiceResponse;
+
+const rakutenConfig = require("./rakutenConfig");
+const RapidAPI = require("rapidapi-connect");
+const rapid = new RapidAPI(rakutenConfig.apiKey, rakutenConfig.auth);
 
 const app = express();
 
@@ -13,9 +17,24 @@ app.use(
 // Loading Static file
 app.use(express.static(path.resolve(__dirname, "..", "build")));
 
-app.get("/compliments", (req, res) => {
-  console.log("HI EXPRESS");
-  res.send("HI Express");
+app.get("/giphy", (req, res) => {
+  try {
+    rapid
+      .call("Giphy", "getRandomGif", {
+        tag: "flower",
+        apiKey: "H6MPhTnX3r1Rdzye5a83DKMDAD4tzuAq"
+      })
+      .on("success", payload => {
+        console.log(payload.data.images);
+        const photos = payload.data.images.original.url;
+        res.json(photos);
+      })
+      .on("error", payload => {
+        res.send("HELLO");
+      });
+  } catch (e) {
+    res.send("HELLO");
+  }
 });
 
 // Loading the first HTML
