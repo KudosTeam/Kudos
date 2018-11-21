@@ -10,7 +10,6 @@ const mapDispatchToProps = dispatch => {
   return {
     getGiphy: () => {
       const res = getGiphy();
-      console.log("RES", res);
       dispatch(res);
     }
   };
