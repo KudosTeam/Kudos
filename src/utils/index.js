@@ -8,7 +8,7 @@ const EN_TWIML = 'https://handler.twilio.com/twiml/EH7ff97ebfb1842687d2c0931761a
 // const JP_TWIML = 'https://handler.twilio.com/twiml/EH05cdd386c865f0b752cd525f1c362029?compliment=あなたは素敵な顔をしています';
 // const CH_TWIML = 'https://handler.twilio.com/twiml/EHa28b6c79d7f510a6deace6369ccf4106?compliment=你很帅';
 
-const twilioObj = {
+export const twilioObj = {
     "accountSid": ACC_SID,
     "accountToken": ACC_TOKEN,
     "from": KUDOS_PHONE,
@@ -16,11 +16,3 @@ const twilioObj = {
     "url": EN_TWIML
 }
 
-export function makeCall() {
-    console.log("Making call...");
-    rapid.call('Twilio', 'makeCall', twilioObj).on('success', (payload) => {
-        console.log('call success');
-    }).on('error', (payload) => {
-        console.error('error: call did not go through');
-    });;
-}

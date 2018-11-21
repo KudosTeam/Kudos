@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import Form from '../components/Form';
-import { fetchCompliments, sendCompliment, } from '../actions/index';
-import { makeCall } from '../utils/index';
+import { fetchCompliments, makeCall, storeCompliment } from '../actions/index';
+// import { makeCall } from '../utils/index';
 
 const mapStateToProps = state => ({
     compliments: state.compliments
@@ -17,8 +17,8 @@ const mapDispatchToProps = (dispatch) => {
             const res = fetchCompliments();
             dispatch(res);
         },
-        sendCompliment: () => {
-            const res = sendCompliment();
+        storeCompliment: () => {
+            const res = storeCompliment();
             dispatch(res);
         },
     };
