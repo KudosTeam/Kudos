@@ -14,7 +14,10 @@ class Form extends Component {
         <div>
           <div>
             <label>Compliment:</label>
+            <h2>Write it yourself with love</h2>
+            <input type="text" name="complimentText" onChange={this.props.selectCompliment} />
             <br />
+            <h2>Choose a pre-made compliment</h2>
             <SelectField name="compliment" onChange={this.props.selectCompliment} menuItems={complimentsPullDown} value="TESTING THIS STUFF" >
               <MenuItem payload="0" value="I like your face">
               I like your face

@@ -31,8 +31,14 @@ export function fetchCompliments() {
 export function selectCompliment(event) {
   return function(dispatch, getState) {
     return (async () => {
+      const input = event;
+      let compliment;
+      if (!input.target.outerText) {
+        compliment = event.target.value;
+      } else {
       console.log(event.target.outerText);
-      let compliment = event.target.outerText;
+      compliment = event.target.outerText;
+      }
       dispatch(setSelectedCompliment(compliment.replace(/\s+/g, '+')));
     })();
   }
