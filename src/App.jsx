@@ -19,11 +19,10 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <Navbar />
-          {/* <header className="App-header">
+          <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p>Tell one compliment per day to someone special!</p>
           </header>
-          <hr /> */}
           <FlowerContainer />
           <FormContainer />
         </div>

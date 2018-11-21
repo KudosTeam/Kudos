@@ -25,7 +25,8 @@ app.get("/giphy", (req, res) => {
         apiKey: "H6MPhTnX3r1Rdzye5a83DKMDAD4tzuAq"
       })
       .on("success", payload => {
-        const photos = payload.data.images.original_still.url;
+        console.log(payload.data.images);
+        const photos = payload.data.images.original.url;
         res.json(photos);
       })
       .on("error", payload => {

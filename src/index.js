@@ -10,7 +10,7 @@ import {
 } from "material-ui/styles";
 
 ReactDOM.render(
-  <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+  <MuiThemeProvider muiTheme={getMuiTheme({lightBaseTheme, appBar: {color: '#E75B76'}})}>
     <App />
   </MuiThemeProvider>,
   document.getElementById("root")

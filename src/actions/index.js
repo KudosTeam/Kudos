@@ -1,10 +1,10 @@
+import axios from "axios";
 import {
   setCompliments,
   setSelectedCompliment,
+  setPhone,
   setSelectedGiphy
 } from "./creators";
-import axios from "axios";
-
 const RapidAPI = new require("rapidapi-connect");
 const rapid = new RapidAPI(
   "kudos_5bf3b826e4b08725af2b0540",
@@ -38,13 +38,18 @@ export function fetchCompliments() {
   // }
 }
 
-export function storeCompliment(event) {
+export function selectCompliment(event) {
   return function(dispatch, getState) {
     return (async () => {
-      console.log("STORE COMPLIMENT", event);
-      let compliment = event.target.outerText;
-      compliment.replace(/\s+/g, "+");
-      dispatch(setSelectedCompliment(compliment));
+      const input = event;
+      let compliment;
+      if (!input.target.outerText) {
+        compliment = event.target.value;
+      } else {
+        console.log(event.target.outerText);
+        compliment = event.target.outerText;
+      }
+      dispatch(setSelectedCompliment(compliment.replace(/\s+/g, "+")));
     })();
   };
 }
@@ -52,17 +57,35 @@ export function storeCompliment(event) {
 export function makeCall() {
   return function(dispatch, getState) {
     return (async () => {
-      console.log("Making call...");
-      twilioObj.url =
-        defaultURL + "?compliment=" + getState().selectedCompliment;
-      rapid
-        .call("Twilio", "makeCall", twilioObj)
-        .on("success", payload => {
-          console.log("call success");
-        })
-        .on("error", payload => {
-          console.error("error: call did not go through");
-        });
+      if (!getState().selectedCompliment)
+        console.error("error: no compliment selected");
+      else if (!getState().phoneNO)
+        console.error("error: no phone number entered");
+      else {
+        console.log("GETSTATE", getState());
+        console.log("Making call...");
+        console.log(getState().phoneNO);
+        twilioObj.to = getState().phoneNO;
+        twilioObj.url =
+          defaultURL + "?compliment=" + getState().selectedCompliment;
+        rapid
+          .call("Twilio", "makeCall", twilioObj)
+          .on("success", payload => {
+            console.log("call success");
+          })
+          .on("error", payload => {
+            console.error("error: call did not go through");
+          });
+      }
+    })();
+  };
+}
+
+export function storePhone(event) {
+  return function(dispatch, getState) {
+    return (async () => {
+      let phoneNO = event.target.value;
+      dispatch(setPhone(phoneNO));
     })();
   };
 }
