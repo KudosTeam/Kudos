@@ -31,10 +31,9 @@ export function fetchCompliments() {
 export function storeCompliment(event) {
   return function(dispatch, getState) {
     return (async () => {
-      console.log("STORE COMPLIMENT", event);
       let compliment = event.target.outerText;
-      compliment.replace(/\s+/g, '+');
-      dispatch(setSelectedCompliment(compliment));
+      console.log(event);
+      dispatch(setSelectedCompliment(compliment.replace(/\s+/g, '+')));
     })();
   }
 }
@@ -42,6 +41,7 @@ export function storeCompliment(event) {
 export function makeCall() {
   return function(dispatch, getState) {
     return (async () => {
+      console.log("GETSTATE", getState());
       console.log("Making call...");
       twilioObj.url = defaultURL + '?compliment=' + getState().selectedCompliment;
       rapid.call('Twilio', 'makeCall', twilioObj).on('success', (payload) => {

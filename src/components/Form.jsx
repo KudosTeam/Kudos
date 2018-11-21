@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { SelectField, MenuItem } from "material-ui";
 
 class Form extends Component {
+
   // onChange = e => {
   //   // this.setState({ [e.target.name]: e.target.value });
   // };
   componentWillMount() {
     // this.props.fetchCompliments();
   }
+
   render() {
     console.log(this.props);
     // const complimentsPullDown = this.props.compliments.compliments.map(
@@ -31,8 +33,8 @@ class Form extends Component {
             <label>Compliment:</label>
             <br />
             <SelectField name="compliment" onChange={this.props.storeCompliment} menuItems={complimentsPullDown}>
-            <MenuItem payload='0' value='Yo mama so poor that ducks throw bread at her'>Yo mama so poor that ducks throw bread at her</MenuItem>
-   <MenuItem payload='1' value='Yo momma so dumb that she went to an L.A. Clippers game to get a hair cut'>Yo momma so dumb that she went to an L.A. Clippers game to get a hair cut</MenuItem>
+              <MenuItem payload='0' value='Yo mama so poor that ducks throw bread at her'>Yo mama so poor that ducks throw bread at her</MenuItem>
+              <MenuItem payload='1' value='Yo momma so dumb that she went to an L.A. Clippers game to get a hair cut'>Yo momma so dumb that she went to an L.A. Clippers game to get a hair cut</MenuItem>
             </SelectField>
           </div>
           <div>
