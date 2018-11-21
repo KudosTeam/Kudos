@@ -1,17 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import App from "./App";
+import { AppContainer } from "./containers/App";
 import * as serviceWorker from "./serviceWorker";
 import {
   MuiThemeProvider,
   getMuiTheme,
   lightBaseTheme
 } from "material-ui/styles";
+import store from "./store";
+import { Provider } from "react-redux";
 
 ReactDOM.render(
-  <MuiThemeProvider muiTheme={getMuiTheme({lightBaseTheme, appBar: {color: '#E75B76'}})}>
-    <App />
+  <MuiThemeProvider
+    muiTheme={getMuiTheme({ lightBaseTheme, appBar: { color: "#E75B76" } })}
+  >
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>
   </MuiThemeProvider>,
   document.getElementById("root")
 );
