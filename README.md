@@ -12,30 +12,26 @@ You can make people around you happy with Kudos even if you are busy.
 
 ## Table of content
 
-- [Installation](#installation)
-  - [TER](#typo3-extension-repository)
-  - [Composer](#composer)
-- [TYPO3 setup](#typo3-setup)
-  - [Extension](#extension)
-  - [Database](#database)
-- [Page setup](#page-setup)
-  - [Upload the page tree file](#upload-the-page-tree-file)
-  - [Go to the import view](#go-to-the-import-view)
-  - [Import the uploaded page tree file](#import-the-uploaded-page-tree-file)
-- [License](#license)
+- [Features](#Features)
+- [Demo Page](#Demo-Page)
+- [Setup](#Setup)
+  - [Get some API keys](#Get-some-API-keys)
+  - [Installation](#Installation)
+- [How it works](#How-it-works)
 - [Links](#links)
 
 ## Features
 
-Kudos provides two features,
+Kudos provides three features,
 
 1. You can send Kudos(compliments) to other by making call
    - You can type kudos by yourself or select from recommendations.
    - When you hit "SEND COMPLIMENTS", it automatically make a call and artificial voice speaks compliments to others.
-2. You can get reward after sending kudos
+2. You can schedule your calling time
+3. You can get reward after sending kudos
    - After hitting "SEND COMPLIMENTS", you can get flower gif
 
-## Demo page
+## Demo Page
 
 [Demo Page](https://statging-love.herokuapp.com/) is here ! You can make a call !
 
