@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { AppBar, Avatar } from "material-ui";
+import { AppBar, } from "material-ui";
 
-const avatarStyle = { margin: 20 };
+// const avatarStyle = { margin: 20 };
 
 class Navbar extends Component {
   render() {

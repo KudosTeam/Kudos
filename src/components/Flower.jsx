@@ -11,7 +11,7 @@ class Flower extends Component {
     return (
       <div className="Flower">
         <Card>
-          <img src={this.props.selectedGiphy} />
+          <img src={this.props.selectedGiphy} alt="Flowers" />
           <CardActions>
             <Button size="small" color="primary" onClick={this.props.goHome}>
               Back
