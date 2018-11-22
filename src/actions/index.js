@@ -50,7 +50,7 @@ export function selectCompliment(event) {
         console.log(event.target.outerText);
         compliment = event.target.outerText;
       }
-      dispatch(setSelectedCompliment(compliment.replace(/\s+/g, "+")));
+      dispatch(setSelectedCompliment(compliment));
     })();
   };
 }
@@ -65,8 +65,7 @@ export function makeCall(isCalled) {
       else {
         console.log("Making call...");
         twilioObj.to = getState().phoneNO;
-        twilioObj.url =
-          defaultURL + "?compliment=" + getState().selectedCompliment;
+        twilioObj.url = defaultURL + "?compliment=" + getState().selectedCompliment.replace(/\s+/g, "+");
 
         const schedule = getState().schedule;
         if (schedule) {
