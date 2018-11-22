@@ -5,3 +5,10 @@
 .App-logo {
   height: 20vmin;
 }
+
+.form {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
