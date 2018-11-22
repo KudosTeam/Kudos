@@ -5,8 +5,9 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import { FormContainer } from "./containers/Form";
 import { FlowerContainer } from "./containers/Flower";
-// import store from "./store";
 import "./App.css";
+import { Typography } from '@material-ui/core';
+import 'typeface-roboto';
 
 class App extends Component {
   render() {
@@ -16,7 +17,7 @@ class App extends Component {
         <Navbar />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>Tell one compliment per day to someone special!</p>
+          <Typography variant="body1">Tell one compliment per day to someone special!</Typography>
         </header>
         {props.isCalled ? <FlowerContainer /> : <FormContainer />}
       </div>

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { SelectField, MenuItem, RaisedButton } from "material-ui";
+import { SelectField, MenuItem, RaisedButton, TextField } from "material-ui";
+import { Typography } from '@material-ui/core';
+import 'typeface-roboto';
 import { SchedulerContainer } from "../containers/Scheduler";
 
 class Form extends Component {
@@ -24,34 +26,32 @@ class Form extends Component {
     }
     return (
       <div className="form">
-        <h2>Send Compliment!</h2>
-        <div>
-          <div>
-            <label>Compliment:</label>
-            <h2>Write it yourself with love</h2>
-            <input
-              type="text"
-              name="complimentText"
-              onChange={props.selectCompliment}
-              ref="complimentText"
-            />
-            <br />
-            <RaisedButton label="Save Compliment" onClick={() => { props.saveCompliment(); props.fetchCompliments(); }} />
-            <br />
-            <h2>Choose a pre-made compliment</h2>
-            <SelectField
-              name="compliment"
-              onChange={props.selectCompliment}
-              value={this.props.selectedCompliment.split('+').join(' ')}
-            >
-              {complimentsJSX}
-            </SelectField>
-          </div>
-          <div>
-            <label>Phone Number:</label>
-            <br />
-            <input type="text" name="phone" onChange={props.storePhone} />
-          </div>
+        <Typography variant="h2">Send Compliment!</Typography>
+        <div id="save" className="child">
+          <Typography variant="h5">Write it yourself with love</Typography>
+          <TextField
+            type="text"
+            id="complimentText"
+            onChange={props.selectCompliment}
+          />
+          <br />
+          <RaisedButton label="Save Compliment" onClick={() => { props.saveCompliment(); props.fetchCompliments(); }} />
+          <br />
+        </div>
+        <div id="select" className="child">
+          <Typography variant="h5">Choose a pre-made compliment</Typography>
+          <SelectField
+            name="compliment"
+            onChange={props.selectCompliment}
+            value={this.props.selectedCompliment.split('+').join(' ')}
+          >
+            {complimentsJSX}
+          </SelectField>
+        </div>
+        <div id="phone" className="child">
+          <Typography variant="h5">Phone Number</Typography>
+          <br />
+          <TextField type="text" id="phone" onChange={props.storePhone} />
           <br />
           <SchedulerContainer />
           <RaisedButton

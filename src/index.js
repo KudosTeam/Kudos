@@ -13,7 +13,7 @@ import { Provider } from "react-redux";
 
 ReactDOM.render(
   <MuiThemeProvider
-    muiTheme={getMuiTheme({ lightBaseTheme, appBar: { color: "#E75B76" } })}
+    muiTheme={getMuiTheme({ lightBaseTheme, appBar: { color: "#E75B76" }, typography: { useNextVariants: true } })}
   >
     <Provider store={store}>
       <AppContainer />
