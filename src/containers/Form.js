@@ -10,7 +10,8 @@ import {
 const mapStateToProps = state => ({
   compliments: state.compliments,
   selectedCompliment: state.selectedCompliment,
-  isCalled: state.isCalled
+  isCalled: state.isCalled,
+  schedule: state.schedule
 });
 
 const mapDispatchToProps = dispatch => {

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { SelectField, MenuItem, RaisedButton } from "material-ui";
+import { SchedulerContainer } from "../containers/Scheduler";
 
 class Form extends Component {
   render() {
@@ -43,6 +44,7 @@ class Form extends Component {
             <input type="text" name="phone" onChange={props.storePhone} />
           </div>
           <br />
+          <SchedulerContainer />
           <RaisedButton
             label="Send Compliment"
             onClick={() => props.makeCall(props.isCalled)}
