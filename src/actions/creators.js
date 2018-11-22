@@ -34,9 +34,16 @@ export function setIsCalled(isCalled) {
 }
 
 export function goHome() {
-  console.log("CREATE");
   return {
     type: "GO_HOME",
     isCalled: false
+  };
+}
+
+export function setTime(schedule) {
+  console.log("ACTION CREATOR", schedule);
+  return {
+    type: "SET_TIME",
+    schedule
   };
 }

@@ -5,7 +5,8 @@ export const initialState = {
   selectedCompliment: "",
   phoneNO: undefined,
   selectedGiphy: undefined,
-  isCalled: false
+  isCalled: false,
+  schedule: undefined
 };
 
 export default function reducer(state = initialState, action) {
@@ -37,6 +38,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         isCalled: action.isCalled
+      };
+    case "SET_TIME":
+      return {
+        ...state,
+        schedule: action.schedule
       };
     default:
       return state;

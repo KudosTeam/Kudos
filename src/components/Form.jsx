@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { SelectField, MenuItem, RaisedButton } from "material-ui";
+import { SchedulerContainer } from "../containers/Scheduler";
 
 class Form extends Component {
   componentDidMount() {
@@ -10,6 +11,7 @@ class Form extends Component {
     let complimentsJSX = <MenuItem></MenuItem>
     const props = this.props;
     if (this.props.compliments) {
+      console.log(this.props.compliments)
       complimentsPullDown = this.props.compliments.map((compliment, index) => {
         return {
           'payload': index,
@@ -40,8 +42,7 @@ class Form extends Component {
             <SelectField
               name="compliment"
               onChange={props.selectCompliment}
-              menuItems={complimentsPullDown}
-              value="TESTING THIS STUFF"
+              value={this.props.selectedCompliment.split('+').join(' ')}
             >
               {complimentsJSX}
             </SelectField>
@@ -52,6 +53,7 @@ class Form extends Component {
             <input type="text" name="phone" onChange={props.storePhone} />
           </div>
           <br />
+          <SchedulerContainer />
           <RaisedButton
             label="Send Compliment"
             onClick={() => props.makeCall(props.isCalled)}

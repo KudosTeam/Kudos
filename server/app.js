@@ -25,6 +25,7 @@ app.use(express.static(path.resolve(__dirname, "..", "build")));
 
 app.get("/compliments", (req, res) => {
   try {
+    console.log("IN APP>GET");
     knex.select().table("compliments").then(compliments => {
       res.json(compliments);
     })
