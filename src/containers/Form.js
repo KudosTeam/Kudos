@@ -4,7 +4,8 @@ import {
   fetchCompliments,
   makeCall,
   selectCompliment,
-  storePhone
+  storePhone,
+  saveCompliment
 } from "../actions/index";
 
 const mapStateToProps = state => ({
@@ -29,6 +30,10 @@ const mapDispatchToProps = dispatch => {
     },
     storePhone: event => {
       const res = storePhone(event);
+      dispatch(res);
+    },
+    saveCompliment: () => {
+      const res = saveCompliment();
       dispatch(res);
     }
   };

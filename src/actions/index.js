@@ -30,17 +30,16 @@ let twilioObj = {
 };
 
 export function fetchCompliments() {
-  // return function (dispatch) {
-  //   fetch("https://jsonplaceholder.typicode.com/posts")
-  //     .then(res => res.json())
-  //     .then(compliments =>
-  //       dispatch(setCompliments())
-  //       );
-  // }
+  return function (dispatch, getState) {
+    return axios.get("/compliments").then(data => {
+      const compliments = data.data.map(obj => obj.compliments);
+      dispatch(setCompliments(compliments));
+    });
+  }
 }
 
 export function selectCompliment(event) {
-  return function(dispatch, getState) {
+  return function (dispatch, getState) {
     return (async () => {
       const input = event;
       let compliment;
@@ -56,16 +55,14 @@ export function selectCompliment(event) {
 }
 
 export function makeCall(isCalled) {
-  return function(dispatch, getState) {
+  return function (dispatch, getState) {
     return (async () => {
       if (!getState().selectedCompliment)
-        console.error("error: no compliment selected");
+        console.error("error: no compliment selected.");
       else if (!getState().phoneNO)
-        console.error("error: no phone number entered");
+        console.error("error: no phone number entered.");
       else {
-        console.log("GETSTATE", getState());
         console.log("Making call...");
-        console.log(getState().phoneNO);
         twilioObj.to = getState().phoneNO;
         twilioObj.url =
           defaultURL + "?compliment=" + getState().selectedCompliment;
@@ -83,17 +80,29 @@ export function makeCall(isCalled) {
   };
 }
 
+export function saveCompliment() {
+  return function (dispatch, getState) {
+    const compliments = getState().selectedCompliment.split("+").join(" ");
+    if (!compliments) console.error("Please enter a compliment in the type field.")
+    else {
+      const toSend = { compliments };
+      return axios.post("/compliments", toSend,
+        { headers: { 'Content-Type': 'application/json' } });
+    }
+  }
+}
+
 export function storePhone(event) {
-  return function(dispatch, getState) {
+  return function (dispatch, getState) {
     return (async () => {
-      let phoneNO = event.target.value;
+      const phoneNO = event.target.value;
       dispatch(setPhone(phoneNO));
     })();
   };
 }
 
 export function getGiphy() {
-  return function(dispatch, getState) {
+  return function (dispatch, getState) {
     return axios.get("/giphy").then(data => {
       const giphyURL = data.data;
       dispatch(setSelectedGiphy(giphyURL));

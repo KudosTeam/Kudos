@@ -10,7 +10,6 @@ import "./App.css";
 
 class App extends Component {
   render() {
-    console.log("isCalled?", this.props.isCalled);
     const props = this.props;
     return (
       <div className="App">
