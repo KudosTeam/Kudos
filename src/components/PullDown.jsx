@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { SelectField, MenuItem, Card } from "material-ui";
-import { Typography } from '@material-ui/core';
+import { MenuItem, Card, CardMedia, Avatar } from "material-ui";
+import { Typography, Select } from '@material-ui/core';
 import 'typeface-roboto';
 
 class PullDown extends Component {
@@ -20,18 +20,21 @@ class PullDown extends Component {
             );
         }
         return (
-            <div className="pulldown">
-                <Card>
-                    <Typography variant="h5">Choose a pre-made compliment</Typography>
-                    <SelectField
-                        name="compliment"
-                        onChange={this.props.selectCompliment}
-                        value={this.props.selectedCompliment.split('+').join(' ')}
-                    >
-                        {menuItems}
-                    </SelectField>
-                </Card>
-            </div >
+            <Card raised={true} style={{ backgroundColor: 'ghostwhite', width: '450px', height: '400px', padding: '50px', 'margin-top': '100px', 'margin-left': '50px' }}>
+                <Typography variant="h5">Choose a compliment</Typography>
+                <br />
+                <Avatar src={require("../choose.png")} alt="choose icon" style={{ width: '150px', height: '150px' }} />
+                <br />
+                <br />
+                <Select
+                    displayEmpty={true}
+                    name="compliment"
+                    onChange={this.props.selectCompliment}
+                    value={this.props.selectedCompliment}
+                >
+                    {menuItems}
+                </Select>
+            </Card>
         );
     }
 }
