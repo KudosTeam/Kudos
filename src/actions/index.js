@@ -4,7 +4,8 @@ import {
   setSelectedCompliment,
   setPhone,
   setSelectedGiphy,
-  setIsCalled
+  setIsCalled,
+  setTime
 } from "./creators";
 const RapidAPI = new require("rapidapi-connect");
 const rapid = new RapidAPI(
@@ -65,22 +66,57 @@ export function makeCall(isCalled) {
       else {
         console.log("GETSTATE", getState());
         console.log("Making call...");
-        console.log(getState().phoneNO);
         twilioObj.to = getState().phoneNO;
         twilioObj.url =
           defaultURL + "?compliment=" + getState().selectedCompliment;
-        rapid
-          .call("Twilio", "makeCall", twilioObj)
-          .on("success", payload => {
-            dispatch(setIsCalled(!isCalled));
-            console.log("call success");
-          })
-          .on("error", payload => {
-            console.error("error: call did not go through");
-          });
+
+        const schedule = getState().schedule;
+        if (schedule) {
+          const delay = timeDiff(schedule);
+          const twilioClone = { ...twilioObj };
+          setTimeout(() => {
+            rapid
+              .call("Twilio", "makeCall", twilioClone)
+              .on("success", payload => {
+                dispatch(setIsCalled(!isCalled));
+                console.log("call success");
+              })
+              .on("error", payload => {
+                console.error("error: call did not go through");
+              });
+          }, delay);
+        } else {
+          rapid
+            .call("Twilio", "makeCall", twilioObj)
+            .on("success", payload => {
+              dispatch(setIsCalled(!isCalled));
+              console.log("call success");
+            })
+            .on("error", payload => {
+              console.error("error: call did not go through");
+            });
+        }
       }
     })();
   };
+}
+
+function timeDiff(schedule) {
+  const now = new Date();
+  const currentDate = {
+    year: now.getFullYear(),
+    month: now.getMonth() + 1,
+    day: now.getDate(),
+    hour: now.getHours(),
+    min: now.getMinutes()
+  };
+  const delay =
+    (schedule.min - currentDate.min) * 60000 +
+    (schedule.hour - currentDate.hour) * 3600000 +
+    (schedule.day - currentDate.day) * 86400000 +
+    (schedule.month - currentDate.month) * 2592000000 +
+    (schedule.year - currentDate.year) * 31104000000;
+  return delay;
 }
 
 export function storePhone(event) {
@@ -98,5 +134,18 @@ export function getGiphy() {
       const giphyURL = data.data;
       dispatch(setSelectedGiphy(giphyURL));
     });
+  };
+}
+
+export function setSchedule(schedule) {
+  return function(dispatch, getState) {
+    const date = {
+      year: Number(schedule.substr(0, 4)),
+      month: Number(schedule.substr(5, 2)),
+      day: Number(schedule.substr(8, 2)),
+      hour: Number(schedule.substr(11, 2)),
+      min: Number(schedule.substr(14, 2))
+    };
+    dispatch(setTime(date));
   };
 }
