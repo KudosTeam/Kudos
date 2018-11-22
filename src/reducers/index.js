@@ -2,7 +2,7 @@ export const initialState = {
   language: ["english", "japanese", "chinese"],
   selectedLanguage: undefined,
   compliments: [],
-  selectedCompliment: "",
+  selectedCompliment: "Enter a compliment.",
   phoneNO: undefined,
   selectedGiphy: undefined,
   isCalled: false,

@@ -58,7 +58,7 @@ export function selectCompliment(event) {
 export function makeCall(isCalled) {
   return function (dispatch, getState) {
     return (async () => {
-      if (!getState().selectedCompliment)
+      if (!getState().selectedCompliment || getState().selectedCompliment === "Enter a compliment.")
         console.error("error: no compliment selected.");
       else if (!getState().phoneNO)
         console.error("error: no phone number entered.");
