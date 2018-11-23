@@ -9,9 +9,9 @@ class Flower extends Component {
   }
   render() {
     return (
-      <div className="Flower">
-        <Card>
-          <img src={this.props.selectedGiphy} />
+      <div className="flower">
+        <Card style={{ backgroundColor: "#E75B76" }}>
+          <img src={this.props.selectedGiphy} alt="Flowers" />
           <CardActions>
             <Button size="small" color="primary" onClick={this.props.goHome}>
               Back

@@ -1,22 +1,21 @@
-const initialState = {
+export const initialState = {
   language: ["english", "japanese", "chinese"],
   selectedLanguage: undefined,
   compliments: [],
-  selectedCompliment: "",
+  selectedCompliment: "Enter a compliment.",
   phoneNO: undefined,
   selectedGiphy: undefined,
-  isCalled: true,
+  isCalled: false,
   schedule: undefined
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case "FETCH_COMPLIMENTS":
+    case "SET_COMPLIMENTS":
       return {
         ...state,
-        language: state.language,
         compliments: action.compliments
-      };
+      }
     case "SET_SELECTED_COMPLIMENT":
       return {
         ...state,

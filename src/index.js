@@ -6,14 +6,13 @@ import * as serviceWorker from "./serviceWorker";
 import {
   MuiThemeProvider,
   getMuiTheme,
-  lightBaseTheme
 } from "material-ui/styles";
 import store from "./store";
 import { Provider } from "react-redux";
 
 ReactDOM.render(
   <MuiThemeProvider
-    muiTheme={getMuiTheme({ lightBaseTheme, appBar: { color: "#E75B76" } })}
+    muiTheme={getMuiTheme({ palette: { primary: { main: "#E75B76" } }, typography: { useNextVariants: true } })}
   >
     <Provider store={store}>
       <AppContainer />
