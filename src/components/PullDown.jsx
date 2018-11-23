@@ -27,7 +27,7 @@ class PullDown extends Component {
                 <br />
                 <br />
                 <Select
-                    style={{width: "200px"}}
+                    style={{width: "300px"}}
                     displayEmpty={true}
                     name="compliment"
                     onChange={this.props.selectCompliment}
