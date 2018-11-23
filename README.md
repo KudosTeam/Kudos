@@ -115,3 +115,10 @@ yarn start
 - [MATERIAL-UI](https://material-ui.com/)
 - [PostgreSQL](https://www.postgresql.org/)
 - [Express](http://expressjs.com/)
+
+### Created by Team Love
+##### Follow us on Github:
+- chcliu
+- SoraMaruyama
+- egurinko
+
