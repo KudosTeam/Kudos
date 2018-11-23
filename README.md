@@ -1,4 +1,4 @@
-<a href="https://statging-love.herokuapp.com/">
+<a href="https://kudos-love.herokuapp.com/">
     <img src="https://user-images.githubusercontent.com/23233648/48875001-a7c43380-ee39-11e8-9d55-bf8494bba4ed.png" alt="Logo" title="Kudos" align="right" height="60" />
 </a>
 
@@ -8,34 +8,31 @@ This was created during my time as a student at Code Chrysalis!<br>
 This project is powered by Rakuten Rapid API.<br>
 You can make people around you happy with Kudos even if you are busy.
 
-[![Kudos UI](https://user-images.githubusercontent.com/23233648/48875400-389c0e80-ee3c-11e8-9a8a-f55da8a6101c.png)](https://statging-love.herokuapp.com/)
+[![Kudos UI](https://user-images.githubusercontent.com/23233648/48925664-a6fad280-ef09-11e8-8b6a-9ce8e6777faa.png)](https://kudos-love.herokuapp.com/)
 
 ## Table of content
 
-- [Installation](#installation)
-  - [TER](#typo3-extension-repository)
-  - [Composer](#composer)
-- [TYPO3 setup](#typo3-setup)
-  - [Extension](#extension)
-  - [Database](#database)
-- [Page setup](#page-setup)
-  - [Upload the page tree file](#upload-the-page-tree-file)
-  - [Go to the import view](#go-to-the-import-view)
-  - [Import the uploaded page tree file](#import-the-uploaded-page-tree-file)
-- [License](#license)
+- [Features](#Features)
+- [Demo Page](#Demo-Page)
+- [Setup](#Setup)
+  - [Get some API keys](#Get-some-API-keys)
+  - [Installation](#Installation)
+- [How it works](#How-it-works)
 - [Links](#links)
 
 ## Features
 
-Kudos provides two features,
+Kudos (compliments) provides three features,
 
-1. You can send Kudos(compliments) to other by making call
-   - You can type kudos by yourself or select from recommendations.
-   - When you hit "SEND COMPLIMENTS", it automatically make a call and artificial voice speaks compliments to others.
-2. You can get reward after sending kudos
-   - After hitting "SEND COMPLIMENTS", you can get flower gif
+1. Create kudos by myself or choose from recommendations.
+2. You can make a automated call with a kudo
+   - When you select a kudo and type phone number, hit "SEND COMPLIMENTS".
+   - It makes automatic call with a beautiful artificial voice.
+   - If you want, you can set a schedule.
+3. You can get a reward after sending kudos
+   - After hitting "SEND COMPLIMENTS", you can get flower gif.
 
-## Demo page
+## Demo Page
 
 [Demo Page](https://kudos-love.herokuapp.com/) is here ! You can make a call !
 
@@ -57,7 +54,14 @@ Because this app is powered by Rakuten Rapid API, please get some API keys first
 7. Please sing-up and login.
 8. Get your giphy API key.
 
-### Installation
+### Prepare PostgresSQL
+
+Because this app is using Postgres, please prepare it.
+
+1. Please install if you don't have it.
+2. Please make a database called kudos_app.
+
+### App Installation
 
 1. Clone this repo
 
@@ -92,17 +96,17 @@ yarn start
 
 - Frontend<br>
   React and Redux
-- Backend<br>
-  Express
-- Database<br>
-  Postgres
 - UI<br>
   MATERIAL-UI
+- Backend<br>
+  Express, knex
+- Database<br>
+  Postgres
 - APIs<br>Rakuten Rapid API for connecting Giphy and Twillio<br>Giphy for getting random gif<br>Twillio for making call and artificial voice
 
 ## Links
 
-- [Web Site](https://statging-love.herokuapp.com/)
+- [Web Site](https://kudos-love.herokuapp.com/)
 - [Rakuten Rapid API](https://english.api.rakuten.net/)
 - [Giphy Developers](https://developers.giphy.com/)
 - [Twillio Docs](https://jp.twilio.com/docs/)
