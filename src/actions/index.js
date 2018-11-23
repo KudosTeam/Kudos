@@ -71,11 +71,11 @@ export function makeCall(isCalled) {
         if (schedule) {
           const delay = timeDiff(schedule);
           const twilioClone = { ...twilioObj };
+          dispatch(setIsCalled(!isCalled));
           setTimeout(() => {
             rapid
               .call("Twilio", "makeCall", twilioClone)
               .on("success", payload => {
-                dispatch(setIsCalled(!isCalled));
                 console.log("call success");
               })
               .on("error", payload => {

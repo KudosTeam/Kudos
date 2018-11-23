@@ -11,7 +11,7 @@ class Flower extends Component {
     return (
       <div className="flower">
         <Card style={{ backgroundColor: "#E75B76" }}>
-          <img src={this.props.selectedGiphy} alt="Flowers" />
+          <img src={this.props.selectedGiphy} alt="Flowers" style={{'margin-top': '50px'}} />
           <CardActions>
             <Button size="small" color="primary" onClick={this.props.goHome}>
               Back
