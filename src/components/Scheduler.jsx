@@ -32,7 +32,7 @@ class Scheduler extends Component {
           id="datetime-local"
           label="Set Scheduler"
           type="datetime-local"
-          defaultValue="2018-11-24T10:30"
+          defaultValue="YYYY-MM-DDTHH:SS"
           onChange={this.props.setSchedule}
           InputLabelProps={{
             shrink: true

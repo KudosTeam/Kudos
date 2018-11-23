@@ -17,6 +17,8 @@ class TypeSave extends Component {
                     id="complimentText"
                     color="primary"
                     placeholder="Type in a compliment."
+                    inputStyle={{ textAlign: 'center' }}
+                    hintStyle={{ textAlign: 'center' }}
                     onChange={this.props.selectCompliment}
                 />
                 <br />

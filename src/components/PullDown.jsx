@@ -21,12 +21,13 @@ class PullDown extends Component {
         }
         return (
             <Card raised={true} style={{ backgroundColor: 'ghostwhite', width: '450px', height: '400px', padding: '50px', 'margin-top': '100px', 'margin-left': '50px' }}>
-                <Typography variant="h5">Choose a compliment</Typography>
+                <Typography variant="h5">Choose a Compliment</Typography>
                 <br />
                 <Avatar src={require("../choose.png")} alt="choose icon" style={{ width: '150px', height: '150px' }} />
                 <br />
                 <br />
                 <Select
+                    style={{width: "300px"}}
                     displayEmpty={true}
                     name="compliment"
                     onChange={this.props.selectCompliment}

@@ -43,8 +43,10 @@ class Phone extends Component {
             <Card raised={true} style={{ backgroundColor: 'ghostwhite', width: '450px', height: '400px', padding: '50px', 'margin-top': '100px', 'margin-bottom': '100px' }}>
                 <Typography variant="h5">Choose a number to call</Typography>
                 <br />
-                <TextField type="text" id="phone" label="phone number"
+                <TextField type="text" id="phone" label="Phone Number"
                     placeholder="81 90 0000 0000"
+                    inputStyle={{ textAlign: 'center' }}
+                    hintStyle={{ textAlign: 'center' }}
                     style={{ margin: 8 }} onChange={props.storePhone} />
                 <br />
                 <br />
