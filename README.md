@@ -33,7 +33,7 @@ Kudos provides three features,
 
 ## Demo Page
 
-[Demo Page](https://statging-love.herokuapp.com/) is here ! You can make a call !
+[Demo Page](https://kudos-love.herokuapp.com/) is here ! You can make a call !
 
 ## Setup
 
