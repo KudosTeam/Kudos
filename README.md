@@ -118,7 +118,7 @@ yarn start
 
 ### Created by Team Love
 ##### Follow us on Github:
-- chcliu
-- SoraMaruyama
-- egurinko
+- [chcliu](https://github.com/chcliu)
+- [SoraMaruyama](https://github.com/SoraMaruyama)
+- [egurinko](https://github.com/egurinko)
 
