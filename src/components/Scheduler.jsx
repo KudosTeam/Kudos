@@ -17,15 +17,6 @@ const styles = theme => ({
 
 class Scheduler extends Component {
   render() {
-    const now = new Date();
-    const currentDate = {
-      year: now.getFullYear(),
-      month: now.getMonth() + 1,
-      day: now.getDate(),
-      hour: now.getHours(),
-      min: now.getMinutes()
-    };
-    console.log("THIS.PROPS", this.props.schedule, currentDate);
     return (
       <form noValidate>
         <TextField

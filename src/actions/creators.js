@@ -41,7 +41,6 @@ export function goHome() {
 }
 
 export function setTime(schedule) {
-  console.log("ACTION CREATOR", schedule);
   return {
     type: "SET_TIME",
     schedule

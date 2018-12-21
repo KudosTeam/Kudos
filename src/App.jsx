@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import logo from "./logo.png";
 import "./App.css";
-// import { Provider } from "react-redux";
-// import Navbar from "./components/Navbar";
 import { FormContainer } from "./containers/Form";
 import { FlowerContainer } from "./containers/Flower";
 import "./App.css";
-import { Typography } from '@material-ui/core';
-import 'typeface-roboto';
+import { Typography } from "@material-ui/core";
+import "typeface-roboto";
+import heart from "./heart-exclamation.png";
 
 class App extends Component {
   render() {
@@ -16,7 +15,14 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Typography variant="body1">Tell one compliment per day to someone special!</Typography>
+          <div className="subtitleHeader">
+            <img src={heart} className="heart" />
+            <Typography variant="h5" className="subtitle">
+              {"  "}
+              Bring back the Love{"  "}
+            </Typography>
+            <img src={heart} className="heart" />
+          </div>
         </header>
         {props.isCalled ? <FlowerContainer /> : <FormContainer />}
       </div>

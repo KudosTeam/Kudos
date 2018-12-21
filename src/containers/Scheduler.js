@@ -10,7 +10,6 @@ const mapDispatchToProps = dispatch => {
   return {
     setSchedule: e => {
       const schedule = e.target.value;
-      console.log("Schedule", schedule, e);
       const res = setSchedule(schedule);
       dispatch(res);
     }
