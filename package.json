@@ -16,7 +16,7 @@
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
     "react-scripts": "3.0.1",
-    "redux": "^4.0.1",
+    "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "thunk": "^0.0.1",
     "twilio": "^3.24.0",
