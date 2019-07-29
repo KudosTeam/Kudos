@@ -16,12 +16,12 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <div className="subtitleHeader">
-            <img src={heart} className="heart" />
+            <img src={heart} className="heart" alt="leftLoveLogo"/>
             <Typography variant="h5" className="subtitle">
               {"  "}
               Bring back the Love{"  "}
             </Typography>
-            <img src={heart} className="heart" />
+            <img src={heart} className="heart" alt="rightLoveLogo"/>
           </div>
         </header>
         {props.isCalled ? <FlowerContainer /> : <FormContainer />}

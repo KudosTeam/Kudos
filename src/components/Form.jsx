@@ -11,7 +11,6 @@ class Form extends Component {
     this.props.fetchCompliments();
   }
   render() {
-    const props = this.props;
     return (
       <div className="form" style={{ backgroundColor: "#E75B76" }}>
         <div className="compliments">

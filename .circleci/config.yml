@@ -28,7 +28,7 @@ jobs:
       
       - run:
           name: build app
-          command: yarn build
+          command: CI=false && yarn build
 
       - save_cache:
           paths:
