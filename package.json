@@ -12,7 +12,7 @@
     "morgan": "^1.9.1",
     "pg": "^7.12.1",
     "rapidapi-connect": "^0.0.6",
-    "react": "^16.9.0",
+    "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-redux": "^7.1.1",
     "react-scripts": "3.1.2",
