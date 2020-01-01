@@ -31,16 +31,17 @@ let twilioObj = {
 };
 
 export function fetchCompliments() {
-  return function (dispatch, getState) {
+  return function(dispatch, getState) {
     return axios.get("/compliments").then(data => {
       const compliments = data.data.map(obj => obj.compliments);
+      console.log("compliments", compliments);
       dispatch(setCompliments(compliments));
     });
-  }
+  };
 }
 
 export function selectCompliment(event) {
-  return function (dispatch, getState) {
+  return function(dispatch, getState) {
     return (async () => {
       const input = event;
       let compliment;
@@ -56,16 +57,22 @@ export function selectCompliment(event) {
 }
 
 export function makeCall(isCalled) {
-  return function (dispatch, getState) {
+  return function(dispatch, getState) {
     return (async () => {
-      if (!getState().selectedCompliment || getState().selectedCompliment === "Enter a compliment.")
+      if (
+        !getState().selectedCompliment ||
+        getState().selectedCompliment === "Enter a compliment."
+      )
         console.error("error: no compliment selected.");
       else if (!getState().phoneNO)
         console.error("error: no phone number entered.");
       else {
         console.log("Making call...");
         twilioObj.to = getState().phoneNO;
-        twilioObj.url = defaultURL + "?compliment=" + getState().selectedCompliment.replace(/\s+/g, "+");
+        twilioObj.url =
+          defaultURL +
+          "?compliment=" +
+          getState().selectedCompliment.replace(/\s+/g, "+");
 
         const schedule = getState().schedule;
         if (schedule) {
@@ -99,15 +106,19 @@ export function makeCall(isCalled) {
 }
 
 export function saveCompliment() {
-  return function (dispatch, getState) {
-    const compliments = getState().selectedCompliment.split("+").join(" ");
-    if (!compliments) console.error("Please enter a compliment in the type field.")
+  return function(dispatch, getState) {
+    const compliments = getState()
+      .selectedCompliment.split("+")
+      .join(" ");
+    if (!compliments)
+      console.error("Please enter a compliment in the type field.");
     else {
       const toSend = { compliments };
-      return axios.post("/compliments", toSend,
-        { headers: { 'Content-Type': 'application/json' } });
+      return axios.post("/compliments", toSend, {
+        headers: { "Content-Type": "application/json" }
+      });
     }
-  }
+  };
 }
 function timeDiff(schedule) {
   const now = new Date();
@@ -128,14 +139,14 @@ function timeDiff(schedule) {
 }
 
 export function storePhone(event) {
-  return function (dispatch, getState) {
+  return function(dispatch, getState) {
     const phoneNO = event.target.value;
     dispatch(setPhone(phoneNO));
   };
 }
 
 export function getGiphy() {
-  return function (dispatch, getState) {
+  return function(dispatch, getState) {
     return axios.get("/giphy").then(data => {
       const giphyURL = data.data;
       dispatch(setSelectedGiphy(giphyURL));
@@ -144,7 +155,7 @@ export function getGiphy() {
 }
 
 export function setSchedule(schedule) {
-  return function (dispatch, getState) {
+  return function(dispatch, getState) {
     const date = {
       year: Number(schedule.substr(0, 4)),
       month: Number(schedule.substr(5, 2)),

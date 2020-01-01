@@ -3,16 +3,16 @@ import ReactDOM from "react-dom";
 
 import { AppContainer } from "./containers/App";
 import * as serviceWorker from "./serviceWorker";
-import {
-  MuiThemeProvider,
-  getMuiTheme,
-} from "material-ui/styles";
+import { MuiThemeProvider, getMuiTheme } from "material-ui/styles";
 import store from "./store";
 import { Provider } from "react-redux";
 
 ReactDOM.render(
   <MuiThemeProvider
-    muiTheme={getMuiTheme({ palette: { primary: { main: "#E75B76" } }, typography: { useNextVariants: true } })}
+    muiTheme={getMuiTheme({
+      palette: { primary: { main: "#E75B76" } },
+      typography: { useNextVariants: true }
+    })}
   >
     <Provider store={store}>
       <AppContainer />
