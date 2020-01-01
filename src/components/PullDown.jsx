@@ -35,7 +35,7 @@ class PullDown extends Component {
         <Typography variant="h5">Choose a Compliment</Typography>
         <br />
         <Avatar
-          src={require("../choose.png")}
+          src={require("../assets/choose.png")}
           alt="choose icon"
           style={{ width: "150px", height: "150px" }}
         />

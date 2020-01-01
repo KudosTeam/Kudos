@@ -10,7 +10,7 @@ class TypeSave extends Component {
             <Card raised={true} style={{ backgroundColor: "ghostwhite", width: '450px', height: '400px', padding: '50px', 'margin-top': '100px', 'margin-right': '50px' }}>
                 < Typography variant="h5" >Write a Compliment</Typography >
                 <br />
-                <Avatar src={require("../write.png")} alt="choose icon" style={{ width: '150px', height: '150px' }} />
+                <Avatar src={require("../assets/write.png")} alt="choose icon" style={{ width: '150px', height: '150px' }} />
                 <br />
                 <TextField
                     type="text"

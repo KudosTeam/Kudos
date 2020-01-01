@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import logo from "./logo.png";
+import logo from "./assets/logo.png";
 import "./App.css";
 import { FormContainer } from "./containers/Form";
 import { FlowerContainer } from "./containers/Flower";
 import "./App.css";
 import { Typography } from "@material-ui/core";
 import "typeface-roboto";
-import heart from "./heart-exclamation.png";
+import heart from "./assets/heart-exclamation.png";
 
 class App extends Component {
   render() {
@@ -16,12 +16,12 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <div className="subtitleHeader">
-            <img src={heart} className="heart" alt="leftLoveLogo"/>
+            <img src={heart} className="heart" alt="leftLoveLogo" />
             <Typography variant="h5" className="subtitle">
               {"  "}
               Bring back the Love{"  "}
             </Typography>
-            <img src={heart} className="heart" alt="rightLoveLogo"/>
+            <img src={heart} className="heart" alt="rightLoveLogo" />
           </div>
         </header>
         {props.isCalled ? <FlowerContainer /> : <FormContainer />}
