@@ -56,3 +56,12 @@ export const setTime = (schedule: Schedule) =>
     type: actionTypes.SET_TIME,
     schedule
   } as const);
+
+export type Action =
+  | ReturnType<typeof setCompliments>
+  | ReturnType<typeof setSelectedGiphy>
+  | ReturnType<typeof setSelectedCompliment>
+  | ReturnType<typeof setPhone>
+  | ReturnType<typeof setIsCalled>
+  | ReturnType<typeof goHome>
+  | ReturnType<typeof setTime>;

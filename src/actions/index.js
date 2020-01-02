@@ -30,7 +30,7 @@ let twilioObj = {
   url: EN_TWIML
 };
 
-export function fetchCompliments() {
+export function fetchComplimentsThunk() {
   return function(dispatch, getState) {
     return axios.get("/compliments").then(data => {
       const compliments = data.data.map(obj => obj.compliments);
@@ -40,23 +40,7 @@ export function fetchCompliments() {
   };
 }
 
-export function selectCompliment(event) {
-  return function(dispatch, getState) {
-    return (async () => {
-      const input = event;
-      let compliment;
-      if (!input.target.outerText) {
-        compliment = event.target.value;
-      } else {
-        console.log(event.target.outerText);
-        compliment = event.target.outerText;
-      }
-      dispatch(setSelectedCompliment(compliment));
-    })();
-  };
-}
-
-export function makeCall(isCalled) {
+export function makeCallThunk(isCalled) {
   return function(dispatch, getState) {
     return (async () => {
       if (
@@ -105,7 +89,7 @@ export function makeCall(isCalled) {
   };
 }
 
-export function saveCompliment() {
+export function saveComplimentThunk() {
   return function(dispatch, getState) {
     const compliments = getState()
       .selectedCompliment.split("+")
@@ -138,14 +122,7 @@ function timeDiff(schedule) {
   return delay;
 }
 
-export function storePhone(event) {
-  return function(dispatch, getState) {
-    const phoneNO = event.target.value;
-    dispatch(setPhone(phoneNO));
-  };
-}
-
-export function getGiphy() {
+export function getGiphyThunk() {
   return function(dispatch, getState) {
     return axios.get("/giphy").then(data => {
       const giphyURL = data.data;

@@ -1,9 +1,9 @@
-import { actionTypes } from "../actions/creators";
-import { Action } from "../actions/types";
+import { actionTypes, Action } from "../actions/creators";
 
 export type Schedule = string;
+const initialState: Schedule = "";
 
-const schedule = (state = "", action: Action): Schedule => {
+const schedule = (state = initialState, action: Action): Schedule => {
   switch (action.type) {
     case actionTypes.SET_TIME:
       return action.schedule;

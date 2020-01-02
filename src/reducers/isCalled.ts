@@ -1,9 +1,9 @@
-import { actionTypes } from "../actions/creators";
-import { Action } from "../actions/types";
+import { actionTypes, Action } from "../actions/creators";
 
 export type IsCalled = boolean;
+const initialState: IsCalled = false;
 
-const isCalled = (state = false, action: Action): IsCalled => {
+const isCalled = (state = initialState, action: Action): IsCalled => {
   switch (action.type) {
     case actionTypes.SET_IS_CALLED:
     case actionTypes.GO_HOME:

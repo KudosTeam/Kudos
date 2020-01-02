@@ -1,5 +1,4 @@
-import { actionTypes } from "../actions/creators";
-import { Action } from "../actions/types";
+import { actionTypes, Action } from "../actions/creators";
 
 export type SelectedCompliment = string;
 const initialState = "Enter a compliment.";
