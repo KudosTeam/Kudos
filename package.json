@@ -20,8 +20,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "thunk": "^0.0.1",
-    "twilio": "^3.39.1",
-    "typeface-roboto": "^0.0.75"
+    "twilio": "^3.39.1"
   },
   "scripts": {
     "start": "node server",
