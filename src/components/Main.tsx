@@ -33,7 +33,7 @@ type MainProps = MainPropsMappedFromState &
 const Main: React.FC<MainProps> = ({ fetchCompliments, classes }) => {
   useEffect(() => {
     fetchCompliments();
-  });
+  }, [fetchCompliments]);
   return (
     <div className={classes.main}>
       <div className={classes.compliments}>

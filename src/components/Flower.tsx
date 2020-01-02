@@ -10,9 +10,7 @@ import {
 } from "../containers/Flower";
 
 const styles = (theme: Theme): StyleRules => ({
-  card: {
-    backgroundColor: "#E75B76"
-  }
+  card: {}
 });
 
 type FlowerProps = FlowerPropsMappedFromState &
@@ -27,7 +25,7 @@ const Flower: React.FC<FlowerProps> = ({
 }) => {
   useEffect(() => {
     getGiphy();
-  });
+  }, [getGiphy]);
 
   return (
     <div>

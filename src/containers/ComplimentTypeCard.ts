@@ -2,15 +2,14 @@ import { connect } from "react-redux";
 import { KudoThunkDispatch, KudoThunkAction } from "../actions/thunks/types";
 import { State } from "../reducers";
 import ComplimentTypeCard from "../components/ComplimentTypeCard";
-import { fetchComplimentsThunk, saveComplimentThunk } from "../actions/index";
+import { fetchComplimentsThunk } from "../actions/thunks/fetchCompliments";
+import { postComplimentThunk } from "../actions/thunks/postCompliment";
 import { setSelectedCompliment } from "../actions/creators";
 
-const fetchCompliments = (): KudoThunkAction<void> => dispatch => {
-  dispatch(fetchComplimentsThunk());
-};
-
 const saveCompliment = (): KudoThunkAction<void> => dispatch => {
-  dispatch(saveComplimentThunk());
+  dispatch(postComplimentThunk()).then(() => {
+    dispatch(fetchComplimentsThunk());
+  });
 };
 
 const mapStateToProps = (state: State) => ({
@@ -19,7 +18,6 @@ const mapStateToProps = (state: State) => ({
 });
 
 const mapDispatchToProps = (dispatch: KudoThunkDispatch) => ({
-  fetchCompliments: () => dispatch(fetchCompliments()),
   selectCompliment: (event: GenericChangeEvent<unknown>) =>
     dispatch(setSelectedCompliment(event.target.value as string)),
   saveCompliment: () => dispatch(saveCompliment())

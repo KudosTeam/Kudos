@@ -39,7 +39,6 @@ type ComplimentTypeCardProps = ComplimentTypeCardPropsMappedFromState &
 const ComplimentTypeCard: React.FC<ComplimentTypeCardProps> = ({
   selectCompliment,
   saveCompliment,
-  fetchCompliments,
   classes
 }) => (
   <Card raised={true} className={classes.card}>
@@ -57,13 +56,7 @@ const ComplimentTypeCard: React.FC<ComplimentTypeCardProps> = ({
       onChange={selectCompliment}
       className={classes.textfield}
     />
-    <Button
-      variant="contained"
-      onClick={() => {
-        saveCompliment();
-        fetchCompliments();
-      }}
-    >
+    <Button variant="contained" onClick={saveCompliment}>
       Save Compliment
     </Button>
   </Card>

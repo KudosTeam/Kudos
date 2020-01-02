@@ -1,12 +1,5 @@
 import axios from "axios";
-import {
-  setCompliments,
-  setSelectedCompliment,
-  setPhone,
-  setSelectedGiphy,
-  setIsCalled,
-  setTime
-} from "./creators";
+import { setSelectedGiphy, setIsCalled, setTime } from "./creators";
 const RapidAPI = new require("rapidapi-connect");
 const rapid = new RapidAPI(
   "kudos_5bf3b826e4b08725af2b0540",
@@ -29,16 +22,6 @@ let twilioObj = {
   to: "+19095252566",
   url: EN_TWIML
 };
-
-export function fetchComplimentsThunk() {
-  return function(dispatch, getState) {
-    return axios.get("/compliments").then(data => {
-      const compliments = data.data.map(obj => obj.compliments);
-      console.log("compliments", compliments);
-      dispatch(setCompliments(compliments));
-    });
-  };
-}
 
 export function makeCallThunk(isCalled) {
   return function(dispatch, getState) {
@@ -89,21 +72,6 @@ export function makeCallThunk(isCalled) {
   };
 }
 
-export function saveComplimentThunk() {
-  return function(dispatch, getState) {
-    const compliments = getState()
-      .selectedCompliment.split("+")
-      .join(" ");
-    if (!compliments)
-      console.error("Please enter a compliment in the type field.");
-    else {
-      const toSend = { compliments };
-      return axios.post("/compliments", toSend, {
-        headers: { "Content-Type": "application/json" }
-      });
-    }
-  };
-}
 function timeDiff(schedule) {
   const now = new Date();
   const currentDate = {
@@ -120,15 +88,6 @@ function timeDiff(schedule) {
     (schedule.month - currentDate.month) * 2592000000 +
     (schedule.year - currentDate.year) * 31104000000;
   return delay;
-}
-
-export function getGiphyThunk() {
-  return function(dispatch, getState) {
-    return axios.get("/giphy").then(data => {
-      const giphyURL = data.data;
-      dispatch(setSelectedGiphy(giphyURL));
-    });
-  };
 }
 
 export function setSchedule(schedule) {

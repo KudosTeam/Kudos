@@ -3,7 +3,7 @@ import { KudoThunkDispatch, KudoThunkAction } from "../actions/thunks/types";
 import { State } from "../reducers";
 
 import Flower from "../components/Flower";
-import { getGiphyThunk } from "../actions";
+import { getGiphyThunk } from "../actions/thunks/getGiphy";
 import { goHome } from "../actions/creators";
 
 const getGiphy = (): KudoThunkAction<void> => dispatch => {

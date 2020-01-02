@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { KudoThunkDispatch, KudoThunkAction } from "../actions/thunks/types";
 import { State } from "../reducers";
 import Main from "../components/Main";
-import { fetchComplimentsThunk } from "../actions/index";
+import { fetchComplimentsThunk } from "../actions/thunks/fetchCompliments";
 
 const fetchCompliments = (): KudoThunkAction<void> => dispatch => {
   dispatch(fetchComplimentsThunk());
