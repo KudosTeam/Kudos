@@ -25,6 +25,10 @@ const styles = (theme: Theme): StyleRules => ({
     width: 150,
     height: 150,
     margin: theme.spacing(2)
+  },
+  textfield: {
+    margin: theme.spacing(3),
+    width: 200
   }
 });
 
@@ -45,15 +49,14 @@ const ComplimentTypeCard: React.FC<ComplimentTypeCardProps> = ({
       alt="choose icon"
       className={classes.avater}
     />
-    <br />
     <TextField
       type="text"
       id="complimentText"
       color="primary"
       placeholder="Type in a compliment."
       onChange={selectCompliment}
+      className={classes.textfield}
     />
-    <br />
     <Button
       variant="contained"
       onClick={() => {

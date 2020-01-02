@@ -16,9 +16,8 @@ export default createMuiTheme({
         backgroundColor: "white",
         width: 450,
         height: 400,
-        padding: 50,
-        marginTop: 100,
-        marginLeft: 50
+        padding: 40,
+        margin: 50
       }
     }
   }

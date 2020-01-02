@@ -16,8 +16,17 @@ import {
 } from "../containers/PhoneCard";
 
 const styles = (theme: Theme): StyleRules => ({
-  app: {
-    textAlign: "center"
+  card: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
+  },
+  textfield: {
+    margin: theme.spacing(3),
+    width: 200
+  },
+  send: {
+    margin: "auto 0"
   }
 });
 
@@ -30,22 +39,22 @@ const PhoneCard: React.FC<PhoneCardProps> = ({
   makeCall,
   classes
 }) => (
-  <Card raised={true}>
+  <Card raised={true} className={classes.card}>
     <Typography variant="h5">Choose a number to call</Typography>
-    <br />
     <TextField
-      type="text"
+      type="tel"
       id="phone"
       label="Phone Number"
       placeholder="81 90 0000 0000"
-      style={{ margin: 8 }}
       onChange={storePhone}
+      className={classes.textfield}
     />
-    <br />
-    <br />
     <SchedulerContainer />
-    <br />
-    <Button variant="contained" onClick={() => makeCall()}>
+    <Button
+      variant="contained"
+      onClick={() => makeCall()}
+      className={classes.send}
+    >
       Send Compliment
     </Button>
   </Card>

@@ -7,13 +7,8 @@ import {
 } from "../containers/Scheduler";
 
 const styles = (theme: Theme): StyleRules => ({
-  container: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
-  textField: {
-    marginLeft: theme.spacing(),
-    marginRight: theme.spacing(),
+  textfield: {
+    margin: theme.spacing(3),
     width: 200
   }
 });
@@ -33,6 +28,7 @@ const Scheduler: React.FC<SchedulerProps> = ({ setSchedule, classes }) => (
       InputLabelProps={{
         shrink: true
       }}
+      className={classes.textfield}
     />
   </form>
 );

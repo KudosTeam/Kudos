@@ -16,8 +16,15 @@ import {
 } from "../containers/ComplimentsSelectionCard";
 
 const styles = (theme: Theme): StyleRules => ({
-  app: {
-    textAlign: "center"
+  card: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
+  },
+  avater: {
+    width: 150,
+    height: 150,
+    margin: theme.spacing(2)
   }
 });
 
@@ -40,13 +47,12 @@ const ComplimentsSelectionCard: React.FC<ComplimentsSelectionCardProps> = ({
   };
 
   return (
-    <Card raised={true}>
+    <Card raised={true} className={classes.card}>
       <Typography variant="h5">Choose a Compliment</Typography>
-      <br />
       <Avatar
         src={require("../assets/choose.png")}
         alt="choose icon"
-        style={{ width: "150px", height: "150px" }}
+        className={classes.avater}
       />
       <br />
       <br />
