@@ -10,7 +10,16 @@ import {
 } from "../containers/Flower";
 
 const styles = (theme: Theme): StyleRules => ({
-  card: {}
+  flowerContainer: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center"
+  },
+  flowerImage: {
+    margin: theme.spacing(8)
+  }
 });
 
 type FlowerProps = FlowerPropsMappedFromState &
@@ -28,15 +37,13 @@ const Flower: React.FC<FlowerProps> = ({
   }, [getGiphy]);
 
   return (
-    <div>
-      <Card className={classes.card}>
-        <img src={selectedGiphy} alt="Flowers" />
-        <CardActions>
-          <Button size="small" color="primary" onClick={goHome}>
-            Back
-          </Button>
-        </CardActions>
-      </Card>
+    <div className={classes.flowerContainer}>
+      <img src={selectedGiphy} alt="Flowers" className={classes.flowerImage} />
+      <CardActions>
+        <Button size="small" color="primary" onClick={goHome}>
+          Back
+        </Button>
+      </CardActions>
     </div>
   );
 };
