@@ -2,11 +2,12 @@ import { connect } from "react-redux";
 import { KudoThunkDispatch, KudoThunkAction } from "../actions/thunks/types";
 import { State } from "../reducers";
 import PhoneCard from "../components/PhoneCard";
-import { makeCallThunk } from "../actions/index";
+import { makeCallThunk } from "../actions/thunks/makeCall";
 import { setPhone } from "../actions/creators";
 
-const makeCall = (): KudoThunkAction<void> => dispatch => {
-  dispatch(makeCallThunk());
+const makeCall = (): KudoThunkAction<void> => (dispatch, getState) => {
+  const { isCalled } = getState();
+  dispatch(makeCallThunk(isCalled));
 };
 
 const mapStateToProps = (state: State) => ({
