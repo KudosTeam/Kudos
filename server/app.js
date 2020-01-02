@@ -33,8 +33,8 @@ const allowCrossDomain = function(req, res, next) {
     "Content-Type, Authorization, Content-Length, X-Requested-With, x-access-token"
   );
 
-  if ("OPTIONS" == req.method) {
-    res.send(200);
+  if ("OPTIONS" === req.method) {
+    res.sendStatus(200);
   } else {
     next();
   }

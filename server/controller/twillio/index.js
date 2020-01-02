@@ -13,40 +13,38 @@ let twilioObj = {
 const defaultURL = envConfig.twillioDefaultUrl;
 
 exports.create = async (req, res) => {
-  const { phoneNO, selectedCompliment, schedule } = req.body;
+  const { phoneNO, selectedCompliment, schedule } = req.body.params;
 
-  try {
-    twilioObj.to = phoneNO;
-    twilioObj.url =
-      defaultURL + "?compliment=" + selectedCompliment.replace(/\s+/g, "+");
+  twilioObj.to = phoneNO;
+  twilioObj.url =
+    defaultURL + "?compliment=" + selectedCompliment.replace(/\s+/g, "+");
 
-    if (schedule) {
-      const delay = timeDiff(schedule);
-      const twilioClone = { ...twilioObj };
-      setTimeout(() => {
-        rapid
-          .call("Twilio", "makeCall", twilioClone)
-          .on("success", () => {
-            console.log("call success");
-          })
-          .on("error", () => {
-            console.error("error: call did not go through");
-          });
-      }, delay);
-    } else {
+  if (schedule) {
+    const delay = timeDiff(schedule);
+    const twilioClone = { ...twilioObj };
+    setTimeout(() => {
       rapid
-        .call("Twilio", "makeCall", twilioObj)
+        .call("Twilio", "makeCall", twilioClone)
         .on("success", () => {
           console.log("call success");
+          res.sendStatus(200);
         })
         .on("error", () => {
           console.error("error: call did not go through");
+          res.sendStatus(500);
         });
-    }
-    res.sendStatus(200);
-  } catch (err) {
-    console.error("Error calling", err);
-    res.sendStatus(500);
+    }, delay);
+  } else {
+    rapid
+      .call("Twilio", "makeCall", twilioObj)
+      .on("success", () => {
+        console.log("call success");
+        res.sendStatus(200);
+      })
+      .on("error", () => {
+        console.error("error: call did not go through");
+        res.sendStatus(500);
+      });
   }
 };
 
