@@ -1,12 +1,13 @@
 import axios from "axios";
 import { KudoThunkAction } from "./types";
 import { setCompliments } from "../creators";
+import domain from "../../utils/domain";
 
 export const fetchComplimentsThunk = (): KudoThunkAction<Promise<void>> => (
   dispatch,
   getState
 ) => {
-  return axios.get("/compliments").then(data => {
+  return axios.get(`${domain}/compliments`).then(data => {
     const compliments = data.data.map(
       (compliment: Compliment) => compliment.compliments
     );

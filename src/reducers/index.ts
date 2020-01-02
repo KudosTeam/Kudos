@@ -19,6 +19,3 @@ const reducer = combineReducers({
 export default reducer;
 
 export type State = ReturnType<typeof reducer>;
-
-// type StateType<T> = T extends Reducer<infer S, Action> ? S : never;
-// export type State = StateType<typeof reducer>;
