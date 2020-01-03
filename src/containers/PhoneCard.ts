@@ -1,13 +1,19 @@
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { KudoThunkDispatch, KudoThunkAction } from "../actions/thunks/types";
 import { State } from "../reducers";
 import PhoneCard from "../components/PhoneCard";
 import { makeCallThunk } from "../actions/thunks/makeCall";
 import { setPhone } from "../actions/creators";
+import { History } from "history";
 
-const makeCall = (): KudoThunkAction<void> => (dispatch, getState) => {
-  const { isCalled } = getState();
-  dispatch(makeCallThunk(isCalled));
+const makeCall = (history: History): KudoThunkAction<void> => (
+  dispatch,
+  getState
+) => {
+  dispatch(makeCallThunk()).then(() => {
+    history.push("/reward");
+  });
 };
 
 const mapStateToProps = (state: State) => ({
@@ -17,7 +23,7 @@ const mapStateToProps = (state: State) => ({
 });
 
 const mapDispatchToProps = (dispatch: KudoThunkDispatch) => ({
-  makeCall: () => dispatch(makeCall()),
+  makeCall: (history: History) => dispatch(makeCall(history)),
   storePhone: (event: GenericChangeEvent<string>) =>
     dispatch(setPhone(event.target.value))
 });
@@ -27,7 +33,6 @@ export type PhoneCardPropsMappedFromDispatch = ReturnType<
   typeof mapDispatchToProps
 >;
 
-export const PhoneCardContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PhoneCard);
+export const PhoneCardContainer = withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(PhoneCard)
+);

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { withStyles, WithStyles, Theme } from "@material-ui/core";
 import { StyleRules } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import {
@@ -40,9 +40,11 @@ const Flower: React.FC<FlowerProps> = ({
     <div className={classes.flowerContainer}>
       <img src={selectedGiphy} alt="Flowers" className={classes.flowerImage} />
       <CardActions>
-        <Button size="small" color="primary" onClick={goHome}>
-          Back
-        </Button>
+        <Link to="/">
+          <Button size="large" color="primary" onClick={goHome}>
+            Back
+          </Button>
+        </Link>
       </CardActions>
     </div>
   );

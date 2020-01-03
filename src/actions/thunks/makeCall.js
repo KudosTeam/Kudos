@@ -1,15 +1,15 @@
-/* tslint:disable */
-import { setIsCalled } from "../creators";
 import axios from "axios";
 import domain from "../../utils/domain";
 
-export const makeCallThunk = isCalled => (dispatch, getState) => {
+export const makeCallThunk = () => (dispatch, getState) => {
   const { selectedCompliment, phoneNO, schedule } = getState();
 
   if (!selectedCompliment || selectedCompliment === "Enter a compliment.") {
     console.error("error: no compliment selected.");
+    return Promise.reject();
   } else if (!phoneNO) {
     console.error("error: no phone number entered.");
+    return Promise.reject();
   } else {
     return axios
       .post(`${domain}/twillio`, {
@@ -20,8 +20,8 @@ export const makeCallThunk = isCalled => (dispatch, getState) => {
         }
       })
       .then(() => {
-        dispatch(setIsCalled(!isCalled));
         return Promise.resolve();
-      });
+      })
+      .catch(() => Promise.reject());
   }
 };

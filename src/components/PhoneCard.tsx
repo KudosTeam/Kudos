@@ -14,6 +14,7 @@ import {
   PhoneCardPropsMappedFromState,
   PhoneCardPropsMappedFromDispatch
 } from "../containers/PhoneCard";
+import { RouteComponentProps } from "react-router";
 
 const styles = (theme: Theme): StyleRules => ({
   card: {
@@ -32,12 +33,14 @@ const styles = (theme: Theme): StyleRules => ({
 
 type PhoneCardProps = PhoneCardPropsMappedFromState &
   PhoneCardPropsMappedFromDispatch &
+  RouteComponentProps<{}> &
   WithStyles<typeof styles>;
 
 const PhoneCard: React.FC<PhoneCardProps> = ({
   storePhone,
   makeCall,
-  classes
+  classes,
+  history
 }) => (
   <Card raised={true} className={classes.card}>
     <Typography variant="h5">Choose a number to call</Typography>
@@ -52,7 +55,7 @@ const PhoneCard: React.FC<PhoneCardProps> = ({
     <SchedulerContainer />
     <Button
       variant="contained"
-      onClick={() => makeCall()}
+      onClick={() => makeCall(history)}
       className={classes.send}
     >
       Send Compliment
