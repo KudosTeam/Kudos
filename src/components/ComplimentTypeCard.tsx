@@ -46,6 +46,7 @@ const ComplimentTypeCard: React.FC<ComplimentTypeCardProps> = ({
     <Avatar
       src={require("../assets/write.png")}
       alt="choose icon"
+      data-cy="chooseIcon"
       className={classes.avater}
     />
     <TextField
@@ -56,7 +57,11 @@ const ComplimentTypeCard: React.FC<ComplimentTypeCardProps> = ({
       onChange={selectCompliment}
       className={classes.textfield}
     />
-    <Button variant="contained" onClick={saveCompliment}>
+    <Button
+      variant="contained"
+      onClick={saveCompliment}
+      data-cy="saveCompliment"
+    >
       Save Compliment
     </Button>
   </Card>

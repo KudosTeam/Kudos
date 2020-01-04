@@ -52,6 +52,7 @@ const ComplimentsSelectionCard: React.FC<ComplimentsSelectionCardProps> = ({
       <Avatar
         src={require("../assets/choose.png")}
         alt="choose icon"
+        data-cy="selectIcon"
         className={classes.avater}
       />
       <br />
@@ -60,6 +61,7 @@ const ComplimentsSelectionCard: React.FC<ComplimentsSelectionCardProps> = ({
         style={{ width: "300px" }}
         displayEmpty={true}
         name="compliment"
+        data-cy="select"
         onChange={e => selectCompliment(e)}
         value={selectedCompliment}
       >

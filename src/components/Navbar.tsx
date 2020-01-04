@@ -28,7 +28,7 @@ type NavbarProps = WithStyles<typeof styles>;
 
 const Navbar: React.FC<NavbarProps> = ({ classes }) => (
   <header className={classes.header}>
-    <img src={logo} className={classes.logo} alt="logo" />
+    <img src={logo} className={classes.logo} alt="logo" data-cy="logo" />
     <div className={classes.subtitleContainer}>
       <img src={heart} className={classes.heart} alt="leftLoveLogo" />
       <Typography variant="h5">Bring back the Love{"  "}</Typography>
