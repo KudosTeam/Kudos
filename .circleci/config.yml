@@ -7,6 +7,11 @@ jobs:
         environment:
           TERM: xterm
 
+      - image: circleci/postgres:latest-postgis
+        environment:
+          POSTGRES_USER: toru
+          POSTGRES_DB: kudos_app
+
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -16,6 +21,18 @@ jobs:
 
     steps:
       - checkout
+
+      # Install sudo for cypress/base because it's debian
+      - run:
+          name: Install sudo
+          command: apt-get update && apt-get install -y sudo
+
+      # Install dockerize to wait for mongodb start
+      - run:
+          name: install dockerize
+          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          environment:
+            DOCKERIZE_VERSION: v0.3.0
 
       # Download and cache dependencies
       - restore_cache:
@@ -34,12 +51,26 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
+          name: Wait for Postgres to start
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
+          name: database setup
+          command: |
+            yarn migrate
+            yarn seed
+
+      - run:
           name: build app
           command: CI=false && yarn build
+
+      - run:
+          name: start server
+          command: yarn start
+          background: true
 
       # run cypress test!
       - run:
           name: run cypress tests
           command: |
-            mkdir -p /tmp/cypress-results/screenshots
             yarn test:wait
