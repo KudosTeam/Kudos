@@ -37,9 +37,8 @@
     "seed": "knex seed:run --knexfile ./db/knexfile.js",
     "test:e2e:gui": "cypress open",
     "test:e2e:cli": "cypress run",
-    "test:e2e:stg:cli": "CYPRESS_baseUrl=https://stg-kudos-love.herokuapp.com cypress run",
     "cypress:install": "cypress install",
-    "test:wait": "wait-on https://stg-kudos-love.herokuapp.com && yarn test:e2e:stg:cli"
+    "test:wait": "wait-on http://localhost:4000 && yarn test:e2e:cli"
   },
   "eslintConfig": {
     "extends": "react-app"
