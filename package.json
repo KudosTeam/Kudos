@@ -34,7 +34,12 @@
     "heroku-postbuild": "yarn build && yarn migrate && yarn seed",
     "migrate": "knex migrate:latest --knexfile ./db/knexfile.js",
     "rollback": "knex migrate:rollback --knexfile ./db/knexfile.js",
-    "seed": "knex seed:run --knexfile ./db/knexfile.js"
+    "seed": "knex seed:run --knexfile ./db/knexfile.js",
+    "test:e2e:gui": "cypress open",
+    "test:e2e:cli": "cypress run",
+    "test:e2e:stg:cli": "CYPRESS_baseUrl=https://stg-kudos-love.herokuapp.com cypress run",
+    "cypress:install": "cypress install",
+    "test:wait": "wait-on https://stg-kudos-love.herokuapp.com && yarn test:e2e:stg:cli"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -51,8 +56,10 @@
     "@types/react-dom": "^16.9.4",
     "@types/react-redux": "^7.1.5",
     "@types/react-router-dom": "^5.1.3",
+    "cypress": "^3.8.1",
     "nodemon": "^2.0.2",
     "redux-actions-type": "^1.0.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "wait-on": "^3.3.0"
   }
 }
