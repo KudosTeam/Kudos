@@ -4485,10 +4485,10 @@ date-now@^0.1.4:
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
   integrity sha1-6vQ5/U1ISK105cx9vvIAZyueNFs=
 
-dayjs@^1.8.18:
-  version "1.8.18"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.18.tgz#c9b3fcd5a8eca96ed20a907f4491516d6eda15c9"
-  integrity sha512-JBMJZghNK8TtuoPnKNIzW9xavVVigld/zmZNpZSyQbkb2Opp55YIfZUpE4OEqPF/iyUVQTKcn1bC2HtC8B7s3g==
+dayjs@^1.8.19:
+  version "1.8.19"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.19.tgz#5117dc390d8f8e586d53891dbff3fa308f51abfe"
+  integrity sha512-7kqOoj3oQSmqbvtvGFLU5iYqies+SqUiEGNT0UtUPPxcPYgY1BrkXR0Cq2R9HYSimBXN+xHkEN4Hi399W+Ovlg==
 
 debug@2.2.0:
   version "2.2.0"
@@ -5061,13 +5061,6 @@ eslint-module-utils@^2.4.0:
   dependencies:
     debug "^2.6.8"
     pkg-dir "^2.0.0"
-
-eslint-plugin-cypress@^2.8.1:
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-cypress/-/eslint-plugin-cypress-2.8.1.tgz#981a0f3658b40de430bcf05cabc96b396487c91f"
-  integrity sha512-jDpcP+MmjmqQO/x3bwIXgp4cl7Q66RYS5/IsuOQP4Qo2sEqE3DI8tTxBQ1EhnV5qEDd2Z2TYHR+5vYI6oCN4uw==
-  dependencies:
-    globals "^11.12.0"
 
 eslint-plugin-flowtype@3.13.0:
   version "3.13.0"
@@ -6072,7 +6065,7 @@ global-prefix@^3.0.0:
     kind-of "^6.0.2"
     which "^1.3.1"
 
-globals@^11.1.0, globals@^11.12.0:
+globals@^11.1.0:
   version "11.12.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
@@ -11649,7 +11642,7 @@ schema-utils@^2.1.0, schema-utils@^2.2.0, schema-utils@^2.5.0:
     ajv "^6.10.2"
     ajv-keywords "^3.4.1"
 
-scmp@^2.0.0:
+scmp@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/scmp/-/scmp-2.1.0.tgz#37b8e197c425bdeb570ab91cc356b311a11f9c9a"
   integrity sha512-o/mRQGk9Rcer/jEEw/yw4mwo3EU/NvYvp577/Btqrym9Qy5/MdWGBqipbALgd2lrdWTJ5/gqDusxfnQBxOxT2Q==
@@ -12661,19 +12654,20 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
-twilio@^3.39.1:
-  version "3.39.1"
-  resolved "https://registry.yarnpkg.com/twilio/-/twilio-3.39.1.tgz#489be42b3d2887affca20b6eaff69b5a9fc4f240"
-  integrity sha512-8u7mkfOwJtR2A4Jm1d7JmlZuVzQzgtUOFBoBxvT3isHQfVs7clRM6IukG9zAZ8D/GA4t9gp40QoNw3G5O65eFA==
+twilio@^3.39.2:
+  version "3.39.2"
+  resolved "https://registry.yarnpkg.com/twilio/-/twilio-3.39.2.tgz#596850f1fc91c82e6e2d1377ca874dfe725b0ec7"
+  integrity sha512-M0dM6wCaR+YVXQeqldiqXNAqqSeZSuhSL5paRFbFTJDpsq/R6eqqhSPvyoaS9hQIm2PNhaEKq+lvqCELckDWpg==
   dependencies:
     "@types/express" "^4.17.2"
-    dayjs "^1.8.18"
+    dayjs "^1.8.19"
     jsonwebtoken "^8.5.1"
     lodash "^4.17.15"
     q "2.0.x"
     request "^2.88.0"
     rootpath "^0.1.2"
-    scmp "^2.0.0"
+    scmp "^2.1.0"
+    url-parse "^1.4.7"
     xmlbuilder "^13.0.2"
 
 type-check@~0.3.2:
@@ -12915,7 +12909,7 @@ url-parse-lax@^1.0.0:
   dependencies:
     prepend-http "^1.0.1"
 
-url-parse@^1.4.3:
+url-parse@^1.4.3, url-parse@^1.4.7:
   version "1.4.7"
   resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.4.7.tgz#a8a83535e8c00a316e403a5db4ac1b9b853ae278"
   integrity sha512-d3uaVyzDB9tQoSXFvuSUNFibTd9zxd2bkVrDRvF5TmvWWQwqE4lgYJ5m+x1DbecWkw+LK4RNl2CU1hHuOKPVlg==
