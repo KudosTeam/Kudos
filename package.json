@@ -21,7 +21,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "thunk": "^0.0.1",
-    "twilio": "^3.39.2"
+    "twilio": "^3.39.3"
   },
   "scripts": {
     "start": "node server",
