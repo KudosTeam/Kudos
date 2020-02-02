@@ -58,7 +58,7 @@
     "cypress": "^3.8.2",
     "nodemon": "^2.0.2",
     "redux-actions-type": "^1.0.0",
-    "typescript": "^3.7.4",
+    "typescript": "^3.7.5",
     "wait-on": "^4.0.0"
   }
 }
