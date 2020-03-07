@@ -1,7 +1,7 @@
 import React from "react";
 import { withStyles, WithStyles, Theme, CssBaseline } from "@material-ui/core";
 import { StyleRules } from "@material-ui/core/styles";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { MainContainer } from "./containers/Main";
 import { FlowerContainer } from "./containers/Flower";
 import Navbar from "./components/Navbar";

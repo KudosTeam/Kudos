@@ -1,5 +1,4 @@
-import { Reducer } from "react";
-import { Action, combineReducers } from "redux";
+import { combineReducers } from "redux";
 import compliments from "./compliments";
 import isCalled from "./isCalled";
 import phoneNO from "./phoneNO";

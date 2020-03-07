@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { withStyles, WithStyles, Theme } from "@material-ui/core";
 import { StyleRules } from "@material-ui/core/styles";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import {
