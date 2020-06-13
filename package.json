@@ -56,7 +56,7 @@
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
     "cypress": "^4.7.0",
-    "nodemon": "^2.0.2",
+    "nodemon": "^2.0.4",
     "redux-actions-type": "^1.0.0",
     "typescript": "^3.9.3",
     "wait-on": "^4.0.2"
