@@ -7,21 +7,21 @@
     "@material-ui/core": "^4.11.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "knex": "^0.21.2",
+    "knex": "^0.21.5",
     "material-ui": "^0.20.2",
     "morgan": "^1.10.0",
-    "pg": "^8.3.0",
+    "pg": "^8.3.3",
     "rapidapi-connect": "^0.0.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "3.4.3",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "thunk": "^0.0.1",
-    "twilio": "^3.48.1"
+    "twilio": "^3.49.0"
   },
   "scripts": {
     "start": "node server",
@@ -50,7 +50,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@types/node": "^14.0.27",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
     "@types/react-redux": "^7.1.9",
@@ -58,7 +57,7 @@
     "cypress": "^4.11.0",
     "nodemon": "^2.0.4",
     "redux-actions-type": "^1.0.0",
-    "typescript": "^3.9.7",
-    "wait-on": "^5.1.0"
+    "typescript": "^4.0.2",
+    "wait-on": "^5.2.0"
   }
 }
